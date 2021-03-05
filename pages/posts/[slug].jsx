@@ -1,41 +1,45 @@
-import { getAllBlogPosts, getSingleBlogPost } from '../../contentful.config';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Link from 'next/link';
-import Navbar from '../../components/Navbar';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import { Container, CardMedia } from '@material-ui/core';
-import dayjs from 'dayjs';
+import { getAllBlogPosts, getSingleBlogPost } from "../../contentful.config";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Link from "next/link";
+import Navbar from "../../components/Navbar";
+import { makeStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import { Container, CardMedia } from "@material-ui/core";
+import dayjs from "dayjs";
 
 const useStyles = makeStyles((theme) => ({
   blogsContainer: {
     paddingTop: theme.spacing(3),
-    maxWidth: '600px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    maxWidth: "600px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center"
   },
   blogTitle: {
-    marginTop: '30px',
+    marginTop: "30px",
     fontWeight: 800,
     paddingBottom: theme.spacing(3),
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito"
   },
   postAuthor: {
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito"
   },
   postDate: {
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito",
     marginBottom: "30px"
   },
   postBody: {
-    fontFamily: 'Nunito',
+    fontFamily: "Nunito"
   },
   media: {
     height: 240,
-    marginBottom: '30px',
+    marginBottom: "30px"
   },
- 
+  home: {
+    cursor: "pointer",
+    textAlign: "center",
+    fontFamily: "Nunito"
+  }
 }));
 
 const Post = ({ post }) => {
@@ -44,7 +48,7 @@ const Post = ({ post }) => {
     <div>
       <Navbar />
       <Container className={classes.blogsContainer}>
-        <Typography variant='h4' className={classes.blogTitle}>
+        <Typography variant="h4" className={classes.blogTitle}>
           {post.title}
         </Typography>
         <CardMedia
@@ -52,19 +56,19 @@ const Post = ({ post }) => {
           image={post.image.fields.file.url}
           title={post.title}
         />
-        <Typography variant='subtitle1' className={classes.postAuthor}>
+        <Typography variant="subtitle1" className={classes.postAuthor}>
           {post.author}
         </Typography>
         <Typography
-          variant='body2'
-          color='textSecondary'
+          variant="body2"
+          color="textSecondary"
           className={classes.postDate}
         >
-          {dayjs(post.publishedDate).format('MMMM D, YYYY')}
+          {dayjs(post.publishedDate).format("MMMM D, YYYY")}
         </Typography>
         <Typography
-          variant='body1'
-          component='span'
+          variant="body1"
+          component="span"
           className={classes.postBody}
         >
           {documentToReactComponents(post.content)}
@@ -72,12 +76,13 @@ const Post = ({ post }) => {
           <br />
         </Typography>
       </Container>
-
       <br />
-      <br />
-      <Link href='/'>
-        <a>Home</a>
+      <Link href="/" className={classes.home}>
+        <Typography variant="body2" className={classes.home}>
+          All blogs
+        </Typography>
       </Link>
+      <br />
     </div>
   );
 };
@@ -90,7 +95,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 };
 
@@ -100,7 +105,7 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      post,
-    },
+      post
+    }
   };
 };
