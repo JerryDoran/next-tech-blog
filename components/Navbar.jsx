@@ -23,7 +23,13 @@ const Navbar = () => {
       <Toolbar>
         <Typography variant="h5">
           <Link href="/">
-            <a className={classes.logo}>My Blog</a>
+            <a className={classes.logo}>My Website</a>
+          </Link>
+          <Link href="/">
+            <a className={classes.logo}>Home</a>
+          </Link>
+          <Link href="/blog">
+            <a className={classes.logo}>Blog</a>
           </Link>
         </Typography>
       </Toolbar>

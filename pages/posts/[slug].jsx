@@ -77,7 +77,7 @@ const Post = ({ post }) => {
         </Typography>
       </Container>
       <br />
-      <Link href="/" className={classes.home}>
+      <Link href="/blog" className={classes.home}>
         <Typography variant="body2" className={classes.home}>
           All blogs
         </Typography>
