@@ -18,7 +18,6 @@ import Pagination from "@material-ui/lab/Pagination";
 import { getAllBlogPosts } from "../contentful.config";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Truncate from "react-truncate";
-import Navbar from "../components/Navbar";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -62,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "100%",
     height: "100%"
   },
+  readMore: {
+    fontFamily: "Nunito"
+  },
   media: {
     height: 240
   },
@@ -79,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Home({ posts }) {
+export default function Blog({ posts }) {
   const classes = useStyles();
   return (
     <>
@@ -87,7 +89,6 @@ export default function Home({ posts }) {
         <title>My Blogs | Home</title>
         <meta name="keywords" content="blogs" />
       </Head>
-      <Navbar />
       <Box className={classes.hero}>
         <Box>My Tech Blog</Box>
       </Box>
@@ -142,9 +143,10 @@ export default function Home({ posts }) {
                           <br />
                         </Typography>
                         <Typography
-                          style={{ fontWeight: 600 }}
+                          style={{ fontWeight: 300 }}
                           variant="subtitle2"
                           component="span"
+                          className={classes.readMore}
                         >
                           read more
                         </Typography>

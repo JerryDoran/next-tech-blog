@@ -46,7 +46,6 @@ const Post = ({ post }) => {
   const classes = useStyles();
   return (
     <div>
-      <Navbar />
       <Container className={classes.blogsContainer}>
         <Typography variant="h4" className={classes.blogTitle}>
           {post.title}

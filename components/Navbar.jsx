@@ -6,13 +6,26 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: "#fff",
-    fontFamily: "Nunito"
+    backgroundColor: "#fff"
+  },
+  toolBar: {
+    display: "flex",
+    justifyContent: "space-between"
   },
   logo: {
     fontFamily: "Nunito",
     color: "#333",
     fontWeight: "bold"
+  },
+  links: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginRight: "20px"
+  },
+  link: {
+    fontFamily: "Nunito",
+    color: "#333",
+    marginRight: "20px"
   }
 }));
 
@@ -20,18 +33,29 @@ const Navbar = () => {
   const classes = useStyles();
   return (
     <AppBar position="static" className={classes.appBar}>
-      <Toolbar>
+      <Toolbar className={classes.toolBar}>
         <Typography variant="h5">
           <Link href="/">
-            <a className={classes.logo}>My Website</a>
-          </Link>
-          <Link href="/">
-            <a className={classes.logo}>Home</a>
-          </Link>
-          <Link href="/blog">
-            <a className={classes.logo}>Blog</a>
+            <a className={classes.logo}>Code Fusion</a>
           </Link>
         </Typography>
+        <div className={classes.links}>
+          <Typography>
+            <Link href="/">
+              <a className={classes.link}>Home</a>
+            </Link>
+          </Typography>
+          <Typography>
+            <Link href="/about">
+              <a className={classes.link}>About</a>
+            </Link>
+          </Typography>
+          <Typography>
+            <Link href="/blog">
+              <a className={classes.link}>Blog</a>
+            </Link>
+          </Typography>
+        </div>
       </Toolbar>
     </AppBar>
   );
