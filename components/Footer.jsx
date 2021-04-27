@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
 const Footer = () => {
   const classes = useStyles();
   return (
-    <div className={classes.footerContainer}>
+   
       <Box display="flex" justifyContent="center">
         <Typography variant="subtitle2" color="textSecondary">
           <p>Copyright 2021 Code Fusion</p>
         </Typography>
       </Box>
-    </div>
+    
   );
 };
 

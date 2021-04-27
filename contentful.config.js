@@ -2,8 +2,8 @@ import { createClient } from "contentful";
 
 export const getAllBlogPosts = async () => {
   const client = createClient({
-    space: "ex6pvsoi7pxx",
-    accessToken: "TtD5eF3UGT5CEWP2W3-R73cf8fq0tPm_9JVXB0RiRDs"
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY
   });
 
   const entries = await client.getEntries({
@@ -25,8 +25,8 @@ export const getAllBlogPosts = async () => {
 
 export const getSingleBlogPost = async (slug) => {
   const client = createClient({
-    space: "ex6pvsoi7pxx",
-    accessToken: "TtD5eF3UGT5CEWP2W3-R73cf8fq0tPm_9JVXB0RiRDs"
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY
   });
 
   const entry = await client.getEntries({

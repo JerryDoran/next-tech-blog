@@ -11,7 +11,8 @@ import {
   CardContent,
   CardMedia,
   Container,
-  Grid
+  Grid,
+  Button
 } from "@material-ui/core";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import Pagination from "@material-ui/lab/Pagination";
@@ -22,7 +23,8 @@ import Truncate from "react-truncate";
 const useStyles = makeStyles((theme) => ({
   hero: {
     backgroundImage: `linear-gradient(rgba(0,0,0, .5), rgba(0,0,0, .5)), url('https://images.unsplash.com/photo-1489619243109-4e0ea59cfe10?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fG5hdHVyZXxlbnwwfDB8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')`,
-    height: "500px",
+    height: "200px",
+    marginBottom: "40px",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -33,8 +35,12 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     fontSize: "4rem",
     [theme.breakpoints.down("sm")]: {
-      height: 300,
+      height: 100,
       fontSize: "3em"
+    },
+    [theme.breakpoints.down("xs")]: {
+      height: 80,
+      fontSize: "2em"
     }
   },
   blogsContainer: {
@@ -78,6 +84,11 @@ const useStyles = makeStyles((theme) => ({
   paginationContainer: {
     display: "flex",
     justifyContent: "center"
+  },
+  readMore: {
+    textTransform: "lowercase",
+    marginLeft: "10px",
+    opacity: 0.7
   }
 }));
 
@@ -89,10 +100,10 @@ export default function Blog({ posts }) {
         <title>My Blogs | Home</title>
         <meta name="keywords" content="blogs" />
       </Head>
-      <Box className={classes.hero}>
-        <Box>My Tech Blog</Box>
-      </Box>
       <Container maxWidth="lg" className={classes.blogsContainer}>
+        <Box className={classes.hero}>
+          <Box>My Tech Blog</Box>
+        </Box>
         <Typography variant="h4" className={classes.blogTitle}>
           Articles
         </Typography>
@@ -142,21 +153,22 @@ export default function Blog({ posts }) {
                           </Truncate>
                           <br />
                         </Typography>
-                        <Typography
+                        {/* <Typography
                           style={{ fontWeight: 300 }}
                           variant="subtitle2"
                           component="span"
                           className={classes.readMore}
                         >
                           read more
-                        </Typography>
+                        </Typography> */}
                       </CardContent>
+                      <Button className={classes.readMore}>read more...</Button>
                     </CardActionArea>
                   </Link>
 
                   <CardActions className={classes.cardActions}>
                     <Box className={classes.author}>
-                      <Box ml={2}>
+                      <Box>
                         <Typography
                           variant="subtitle2"
                           className={classes.postAuthor}
