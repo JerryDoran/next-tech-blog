@@ -5,19 +5,22 @@ const useStyles = makeStyles((theme) => ({
   footerContainer: {
     width: "100%",
     alignItems: "center",
+    padding: "20px 0"
   }
 }));
 
 const Footer = () => {
   const classes = useStyles();
   return (
-   
-      <Box display="flex" justifyContent="center">
-        <Typography variant="subtitle2" color="textSecondary">
-          <p>Copyright 2021 Code Fusion</p>
-        </Typography>
-      </Box>
-    
+    <Box
+      display="flex"
+      justifyContent="center"
+      className={classes.footerContainer}
+    >
+      <Typography variant="subtitle2" color="textSecondary">
+        <p>Copyright 2021 Code Fusion</p>
+      </Typography>
+    </Box>
   );
 };
 
