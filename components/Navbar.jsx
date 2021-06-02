@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     width: drawerWidth,
     display: "flex",
-    alignItems: "center"
+    alignItems: "flex-start"
   }
 }));
 
@@ -142,7 +142,6 @@ const Navbar = (props) => {
             })}
           </div>
           <Drawer
-            className={classes.drawerBar}
             container={container}
             variant="temporary"
             anchor={theme.direction === "rtl" ? "right" : "left"}
