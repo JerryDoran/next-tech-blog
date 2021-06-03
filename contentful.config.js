@@ -49,3 +49,28 @@ export const getSingleBlogPost = async (slug) => {
     };
   })[0];
 };
+
+export const getAllApps = async () => {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY
+  });
+  console.log("i made it here");
+
+  const entries = await client.getEntries({
+    content_type: "app"
+  });
+
+  console.log(entries);
+
+  return entries?.items?.map((item) => {
+    const { fields } = item;
+    return {
+      title: fields.title,
+      slug: fields.slug,
+      image: fields.image,
+      content: fields.content,
+      link: fields.link
+    };
+  });
+};
