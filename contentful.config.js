@@ -36,7 +36,7 @@ export const getSingleBlogPost = async (slug) => {
   });
 
   return entry?.items?.map((item) => {
-    console.log(item);
+    // console.log(item);
 
     const { fields } = item;
     return {
@@ -55,13 +55,12 @@ export const getAllApps = async () => {
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY
   });
-  console.log("i made it here");
 
   const entries = await client.getEntries({
     content_type: "app"
   });
 
-  console.log(entries);
+  // console.log(entries);
 
   return entries?.items?.map((item) => {
     const { fields } = item;

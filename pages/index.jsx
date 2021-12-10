@@ -46,6 +46,7 @@ export default function Home() {
             The possibilities are endless...
           </Typography>
         </Box>
+
         <Box>
           <Image src="/hero.png" width={500} height={550} />
         </Box>
